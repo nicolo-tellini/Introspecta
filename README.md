@@ -55,8 +55,11 @@ Paired-end FASTQs data **must** be gziped and suffixed with **.R1.fastq.gz** and
 ### Default 
 
 bwa.sh uses 2 thread for sample (n.samples = 2).
+
 samtools_markers.sh uses 1 thread for sample (n.samples = 4).
+
 gem.sh uses 2 threads.
+
 freec.sh uses 4 threads.
 
 these values can be changed editing the scripts.
