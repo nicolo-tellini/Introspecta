@@ -52,6 +52,10 @@ Move the FASTQs inside ```./seq/```
 
 Paired-end FASTQs data **must** be gziped and suffixed with **.R1.fastq.gz** and **.R2.fastq.gz**.
 
+### Default 
+
+BWA will process 2 samples per time (2 threads each one).
+
 ### How to run
 
 Edit ```runner.sh``` :page_with_curl: 
