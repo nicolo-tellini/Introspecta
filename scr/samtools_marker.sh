@@ -4,6 +4,9 @@ ref1Label=$1
 ref2Label=$2
 BaseDir=$3
 
+Nthreads=1
+Nruns=4
+
 mrkDir=$BaseDir/mrk
 
 if [[ ! -d $mrkDir ]]; then
@@ -20,9 +23,6 @@ done
 
 BamDir=$BaseDir/map
 DataExt=.srt.rmd.bam
-
-Nthreads=1
-Nruns=4
 
 cd $BamDir
 
