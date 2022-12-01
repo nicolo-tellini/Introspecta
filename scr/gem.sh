@@ -4,7 +4,8 @@ ref1=$1
 ref2=$2
 BaseDir=$3
 
-Nthreads=12
+Nthreads=2
+
 CopyNumDir=${BaseDir}"/cnv"
 MapDir=${BaseDir}"/cnv/mappability"
 ModDir=${BaseDir}"/ref"
