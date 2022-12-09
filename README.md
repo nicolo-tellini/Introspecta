@@ -15,8 +15,7 @@ Pipeline described in Tellini et al 20xx for detecting *S.par* introgressions in
 :octocat: :
   
 ```sh
-git clone --recursive https://github.com/nicolo-tellini/introspect.git
-cd introspect
+git clone --recursive https://github.com/nicolo-tellini/intropipeline.git
 ```
 
 ## Content
