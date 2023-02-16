@@ -1,6 +1,6 @@
 Raw data produced in Tellini et all.2023 can be downloaded [here](http://134.59.51.17:5000/sharing/keXp2tuto)
 
-# introgression
+# intropipeline
 
 An automated computational framework for detecting *Saccahromyces paradoxus* introgressions in *Saccahromyces cerevisiae* diploid strains from paired-end illumina sequencing.
 
