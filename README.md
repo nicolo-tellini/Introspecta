@@ -10,7 +10,7 @@ An automated computational framework for detecting *Saccahromyces paradoxus* int
 
 ## Description
 
-Pipeline described in Tellini et al 20xx for detecting *S.par* introgressions in *S.cer* diploid strains.
+Pipeline described in Tellini et al 20xx for detecting *S.par* introgressions in *S.cer*  strains.
 
 ## Download
  
