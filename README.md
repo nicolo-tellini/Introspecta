@@ -1,4 +1,4 @@
-Raw data produced in Tellini et all.2023 can be downloaded [here](http://134.59.51.17:5000/sharing/keXp2tuto)
+Raw data produced in Tellini et all., can be downloaded [here](http://134.59.51.17:5000/sharing/keXp2tuto)
 
 # intropipeline
 
