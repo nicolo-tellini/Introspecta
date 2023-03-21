@@ -9,8 +9,8 @@ sambamba = Sambamba
 maxThreads = 2 
 gemMappabilityFile = STRINGgemMappabilityFile
 outputDir = STRINGoutputDir
-minseqectedGC=0.35
-maxseqectedGC=0.40
+minExpectedGC=0.35
+maxExpectedGC=0.40
 
 
 [sample]
