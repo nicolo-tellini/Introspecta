@@ -2,7 +2,7 @@ raw data produced in Tellini et al., can be downloaded [here](http://134.59.51.1
 
 # intropipeline
 
-An automated computational framework for detecting *Saccahromyces paradoxus* introgressions in *Saccahromyces cerevisiae* strains from paired-end illumina sequencing.
+An automated computational framework for detecting *Saccharomyces paradoxus* introgressions in *Saccharomyces cerevisiae* strains from paired-end illumina sequencing.
 
 <p align="center">
   <img src="https://github.com/nicolo-tellini/introspect/blob/loaded/img/logo2.png" alt="Sublime's custom image"/>
