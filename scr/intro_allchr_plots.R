@@ -75,8 +75,8 @@ for (indS in samples) {
   temptab <- LOHTab[LOHTab[,15] == indS & LOHTab[,14] == ref1,]
  
   plotallchr <-  ggplot() + 
-    geom_rect(temptab,mapping = aes(xmin=first, xmax=last, ymin=ymin,ymax=ymax),fill=temptab$color,alpha=.5) +
-    geom_rect(chrlen, mapping = aes(xmin=0, xmax=V2, ymin=yminimi,ymax=ymassimi),fill="grey99",color="black", size=.1,alpha=0.000001) +
+    geom_rect(temptab,mapping = aes(xmin=first, xmax=last, ymin=ymin,ymax=ymax),fill=temptab$color,alpha=.8) +
+    geom_rect(chrlen, mapping = aes(xmin=0, xmax=V2, ymin=yminimi,ymax=ymassimi),fill="grey99",color="black", size=.3,alpha=0.000001) +
     ggtitle(paste0(indS)) +
     geom_point(centromeric,mapping = aes(x = ((as.numeric(V1) + as.numeric(V2))/2)), y=((as.numeric(yminimi) + as.numeric(ymassimi))/2),color="black",fill="black") +
     annotate(geom="text", x=as.numeric(-50), y=((as.numeric(yminimi) + as.numeric(ymassimi))/2), label=z ,color="black",hjust=1.5) +
