@@ -2,6 +2,11 @@ raw data produced in Tellini et al., can be downloaded [here](http://134.59.51.1
 
 # intropipeline
 
+[![Licence](https://img.shields.io/github/license/nicolo-tellini/intropipeline?style=plastic)](https://github.com/nicolo-tellini/intropipeline/blob/main/LICENSE)
+[![Release](https://img.shields.io/github/v/release/nicolo-tellini/intropipeline?style=plastic)](https://github.com/nicolo-tellini/intropipeline/releases/tag/v.1.0.0)
+[![release date](https://img.shields.io/github/release-date/nicolo-tellini/intropipeline?color=violet&style=plastic)](https://github.com/nicolo-tellini/intropipeline/releases/tag/v.1.0.0)
+[![commit](https://img.shields.io/github/last-commit/nicolo-tellini/intropipeline?color=yellow&style=plastic)](https://github.com/nicolo-tellini/intropipeline/graphs/commit-activity)
+
 An automated computational framework for detecting *Saccharomyces paradoxus* introgressions in *Saccharomyces cerevisiae* strains from paired-end illumina sequencing.
 
 <p align="center">
