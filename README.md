@@ -206,3 +206,4 @@ Marker definition [link method paper]
 - adopt ranking strategy
 - integration genomics annotations
 - traffic light bash (control over the number of samples and threads)
+- switch CNVs
