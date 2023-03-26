@@ -200,5 +200,9 @@ Marker definition [link method paper]
 - rename columns names ClrS
 
 ### long-term updates
+
+- more extensive mapping
+- migration to data.table 
+- adopt ranking strategy
+- integration genomics annotations
 - traffic light bash
-- implement [interactive plots](https://nbviewer.org/github/nicolo-tellini/introspect/blob/loaded/introgression-interactive.html)
