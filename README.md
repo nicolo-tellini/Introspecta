@@ -205,4 +205,4 @@ Marker definition [link method paper]
 - migration to data.table 
 - adopt ranking strategy
 - integration genomics annotations
-- traffic light bash
+- traffic light bash (control over the number of samples and threads)
