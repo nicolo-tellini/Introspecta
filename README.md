@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="" alt="sppComb logo" width="450" height="300"/> 
+</p>
+
 raw data produced in Tellini et al., can be downloaded [here](http://134.59.51.17:5000/sharing/keXp2tuto)
 
 # intropipeline
