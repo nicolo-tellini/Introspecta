@@ -4,6 +4,10 @@
 
 raw data produced in Tellini et al., can be downloaded [here](http://134.59.51.17:5000/sharing/keXp2tuto)
 
+:construction: this page is under construction (08/06/2023)
+
+:rocket: A v.2 with several improvements in stability, speed and memory consumption is close to being released.
+
 # intropipeline
 
 [![Licence](https://img.shields.io/github/license/nicolo-tellini/intropipeline?style=plastic)](https://github.com/nicolo-tellini/intropipeline/blob/main/LICENSE)
