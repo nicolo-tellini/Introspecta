@@ -25,6 +25,9 @@ cnv="yes" ## ("yes","no")
 ## STEP 5
 intro="yes" ## ("yes","no")
 
+## STEP 6
+heatmap="yes"
+
 #####################
 ### settings' end ###
 #####################
