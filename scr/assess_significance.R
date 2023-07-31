@@ -1,11 +1,15 @@
+#!/usr/bin/env Rscript
+# The original script was modified according to the correction proposed by @stbio-hbh
+# on github ( https://github.com/BoevaLab/FREEC/issues ) issue #127
+
 library(rtracklayer)
 
-args <- commandArgs()
+args <- commandArgs(trailingOnly = T)
 
-dataTable <-read.table(args[5], header=TRUE);
+dataTable <-read.table(args[1], header=TRUE);
 ratio<-data.frame(dataTable)
 
-dataTable <- read.table(args[4], header=FALSE)
+dataTable <- read.table(args[2], header=FALSE)
 cnvs<- data.frame(dataTable)
 
 ratio$Ratio[which(ratio$Ratio==-1)]=NA
@@ -32,19 +36,16 @@ normals <- subsetByOverlaps(ratio.bed,normals)
 #qqline(log(score(normals))[which(!is.na(score(normals)))], col = 2)
 
 numberOfCol=length(cnvs)
-
+wscore=c()
+kscore=c()
 for (i in c(1:length(cnvs[,1]))) {
   values <- score(subsetByOverlaps(ratio.bed,cnvs.bed[i]))
-  #wilcox.test(values,mu=mu)
-  W <- function(values,normals){resultw <- try(wilcox.test(values,score(normals)), silent = TRUE)
-	if(class(resultw)=="try-error") return(list("statistic"=NA,"parameter"=NA,"p.value"=NA,"null.value"=NA,"alternative"=NA,"method"=NA,"data.name"=NA)) else resultw}
-  KS <- function(values,normals){resultks <- try(ks.test(values,score(normals)), silent = TRUE)
-	if(class(resultks)=="try-error") return(list("statistic"=NA,"p.value"=NA,"alternative"=NA,"method"=NA,"data.name"=NA)) else resultks}
-  #resultks <- try(KS <- ks.test(values,score(normals)), silent = TRUE)
-  #	if(class(resultks)=="try-error") NA) else resultks
-  cnvs[i,numberOfCol+1]=W(values,normals)$p.value
-  cnvs[i,numberOfCol+2]=KS(values,normals)$p.value
-  }
+  resultw <- class(try(wilcox.test(values,score(normals)), silent = TRUE))
+  ifelse(resultw == "try-error", wscore <- c(wscore, "NA"), wscore <- c(wscore, wilcox.test(values,score(normals))$p.value))
+  resultks <- class(try(ks.test(values,score(normals)), silent = TRUE))
+  ifelse(resultks == "try-error",kscore <- c(kscore, "NA"),kscore <- c(kscore, ks.test(values,score(normals))$p.value))
+}
+cnvs = cbind(cnvs, wscore, kscore)
 
 if (numberOfCol==5) {
   names(cnvs)=c("chr","start","end","copy number","status","WilcoxonRankSumTestPvalue","KolmogorovSmirnovPvalue")  
@@ -55,6 +56,4 @@ if (numberOfCol==7) {
 if (numberOfCol==9) {
   names(cnvs)=c("chr","start","end","copy number","status","genotype","uncertainty","somatic/germline","precentageOfGermline","WilcoxonRankSumTestPvalue","KolmogorovSmirnovPvalue")  
 }
-write.table(cnvs, file=paste(args[4],".p.value.txt",sep=""),sep="\t",quote=F,row.names=F)
-
-
+write.table(cnvs, file=paste(args[2],".p.value.txt",sep=""),sep="\t",quote=F,row.names=F)
