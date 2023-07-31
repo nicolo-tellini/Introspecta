@@ -1,7 +1,7 @@
 #!/bin/bash
 
 baseDir=$1
-nThreads=$2
+nThreads=2
 
 tfile=$baseDir"/scr/Control-FREEC.Config.Template.txt"
 p2lib=$baseDir"/scr/"
