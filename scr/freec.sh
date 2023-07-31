@@ -45,17 +45,17 @@ do
   fi
 
   # crea il file config_GC.txt specifico per il campione/reference
-  sed "s|STRINGchrLenFile|$baseDir/cnv/GCdata/$reference/LenChr.txt|" < $tfile | sed "s|STRINGchrFiles|$baseDir/cnv/GCdata/$reference/Chrref|" | sed "s|STRINGmateFile|$baseDir/map/$SampleName.$reference.bam|" | sed "s|STRINGoutputDir|$OutDir|" | sed "s|NumPloidy|$ploidy|" | sed "s|STRINGgemMappabilityFile|$baseDir/cnv/mappability/$reference/$readlen/$reference.mappability|" | sed -e "s|Sambamba|$baseDir/scr/sambamba|" > $Config"/CF."$SampleName".Input.GC.txt"
+  sed "s|STRINGchrLenFile|$baseDir/cnv/GCdata/$reference/LenChr.txt|" < $tfile | sed "s|STRINGchrFiles|$baseDir/cnv/GCdata/$reference/Chrref|" | sed "s|STRINGmateFile|$baseDir/map/$SampleName.$reference.srt.rmd.bam|" | sed "s|STRINGoutputDir|$OutDir|" | sed "s|NumPloidy|$ploidy|" | sed "s|STRINGgemMappabilityFile|$baseDir/cnv/mappability/$reference/$readlen/$reference.mappability|" | sed -e "s|Sambamba|$baseDir/scr/sambamba|" > $Config"/CF."$SampleName".Input.GC.txt"
 
   # running Control-FREEC
   freec -conf $Config"/CF."$SampleName".Input.GC.txt" &> $OutDir"/"$SampleName".log"
 
   # calculate significance
-  Rscript $baseDir/scr/assess_significance.R $OutDir"/"$SampleName"."$reference".bam_ratio.txt" $OutDir"/"$SampleName"."$reference".bam_CNVs"
+  Rscript $baseDir/scr/assess_significance.R $OutDir"/"$SampleName"."$reference".srt.rmd.bam_ratio.txt" $OutDir"/"$SampleName"."$reference".srt.rmd.bam_CNVs"
 
   AllChr=$(cut -f2 $baseDir"/cnv/GCdata/"$reference"/LenChr.txt" | sed 's|chr||')
   Nchrom=$(echo ${AllChr} | wc -w)
-  cat $p2lib"/makeplotcnv.R" | R --slave --args $ploidy $OutDir"/"$SampleName"."$reference".bam_ratio.txt" $Nchrom $AllChr
+  cat $p2lib"/makeplotcnv.R" | R --slave --args $ploidy $OutDir"/"$SampleName"."$reference".srt.rmd.bam_ratio.txt" $Nchrom $AllChr
   ) &
  done
 done
