@@ -27,6 +27,13 @@ v1. The pipeline described in Tellini et al 20xx for detecting *S.par* introgres
 v2. 
 - introduced ```data.table```, ```lapply``` and custom function for large file manipulation for reducing runtime and RAM load.
   example:
+
+| script  | Elapsed Time (s) | Maximum resident set size (GB) |
+| ------------- | ------------- | ------------- |
+| parser_marker.r (v1)  | 0:19 s/sample | 0.9 GB  |
+| parser_marker.r (v2)  | 0:06 s/sample | 0.5 GB  |
+| clrs.r (v1) | 0:52 s/sample  | 2.4 GB |
+| clrs.r (v2) | 0:19 s/sample  | 0.7 GB |
  
   
 - introduced the variables ```nSamples``` and ```nThreads``` inside ```runner.sh```. The first variable controls the number of samples to run in paralell and the second the per-samples number of threads. ```nSamples``` guarantees a contant number of samples running in parallel; as soon as the count drop of one sample an other will start to run. The definition of these variables affect the scripts ```bwa2.sh```, ```bcftools_markers.sh``` (which replaces ```samtools_marker.sh```) and ```freec.sh```.
