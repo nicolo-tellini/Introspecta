@@ -25,8 +25,17 @@ An automated computational framework for detecting *Saccharomyces paradoxus* int
 
 v1. The pipeline described in Tellini et al 20xx for detecting *S.par* introgressions in *S.cer* strains.
 The v2 contains the following implementations and changes:
-- ```minimap2``` replaced ```bwa mem``` resulting in short running time and reduced RAM load;
-  example:
+- ```minimap2``` replaced ```bwa mem``` resulting in half running time;
+
+sample: ERR3010122
+threads: 2
+Architecture: x86_64
+CPU: Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz
+
+| script  | Elapsed Time (s) | Maximum resident set size (GB) |
+| ------------- | ------------- | ------------- |
+| bwa mem + samtools (v1) | 6:21 (m:ss) | 1.3 GB  |
+| minimap2 + samtools (v2) | 3:36 (m:ss) | 1.3 GB  |
   
 - improved the reproducibility of the mapping by implementing the standard samtools workflow according to [samtools' guideline](http://www.htslib.org/workflow/fastq.html)
 - improved the roboustness of the mapping by appending the name of the strain to a checkpoint (cps) file (```./cps/cps.txt```). The strains which names are stored in ```./cps/cps.txt``` will not mapped again.
