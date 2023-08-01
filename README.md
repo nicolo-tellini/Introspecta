@@ -26,17 +26,21 @@ An automated computational framework for detecting *Saccharomyces paradoxus* int
 v1. is described in Tellini et al 20xx for detecting *S.par* introgressions in *S.cer* strains. <br>
 
 v2. contains the following implementations and changes:
-- ```minimap2``` replaced ```bwa mem``` halving the running time (see [Heng Li 2018, Bioinformatics](https://academic.oup.com/bioinformatics/article/34/18/3094/4994778?login=true)) ; <br>
+- ```minimap2``` replaced ```bwa mem``` almost halving the running time (see [Heng Li 2018, Bioinformatics](https://academic.oup.com/bioinformatics/article/34/18/3094/4994778?login=true)) ; <br>
 
   sample: ERR3010122 <br>
+  
   threads: 2 <br>
+  
   Architecture: x86_64 <br>
+  
   CPU: Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz <br>
+  
 
-  | script  | Elapsed Time (s) | Maximum resident set size (GB) |
+  | script  | Elapsed Time | Maximum resident set size (GB) |
   | ------------- | ------------- | ------------- |
-  | bwa mem + samtools (v1) | 6:21 (m:ss) | 1.3 GB  |
-  | minimap2 + samtools (v2) | 3:36 (m:ss) | 1.3 GB  |
+  | bwa mem + samtools (v1) | 6:21 (m:ss) | 1.3   |
+  | minimap2 + samtools (v2) | 3:36 (m:ss) | 1.3  |
   
 - improved the reproducibility of the mapping by implementing the standard samtools workflow according to [samtools' guideline](http://www.htslib.org/workflow/fastq.html)
 - improved the roboustness of the mapping by appending the name of the strain to a checkpoint (cps) file (```./cps/cps.txt```). The strains which names are stored in ```./cps/cps.txt``` will not mapped again.
@@ -45,13 +49,17 @@ v2. contains the following implementations and changes:
 
   | script  | Elapsed Time (s) | Maximum resident set size (GB) |
   | ------------- | ------------- | ------------- |
-  | parser_marker.r (v1)  | ≈ 0:19 s/sample | 0.9 GB  |
-  |  parser_marker.r (v2)  | ≈ 0:06 s/sample | 0.5 GB  |
-  | clrs.r (v1) | ≈ 0:52 s/sample  | 2.4 GB |
-  | clrs.r (v2) | ≈ 0:19 s/sample  | 0.7 GB |
+  | parser_marker.r (v1)  | 0:19 s | 0.9 GB  |
+  |  parser_marker.r (v2)  | 0:06 s | 0.5 GB  |
+  | clrs.r (v1) | 0:52 s  | 2.4 GB |
+  | clrs.r (v2) | 0:17 s  | 0.7 GB |
   
-- introduced the variables ```nSamples``` and ```nThreads``` inside ```runner.sh```. The first variable controls the number of samples to run in paralell and the second the per-samples number of threads. ```nSamples``` guarantees a contant number of samples running in parallel; as soon as the count drop of one sample an other will start to run. The definition of these variables affect the scripts ```bwa2.sh```, ```bcftools_markers.sh``` (which replaces ```samtools_marker.sh```) and ```freec.sh```.
--
+- introduced the variables ```nSamples``` and ```nThreads``` inside ```runner.sh```. The first variable controls the number of samples to run in paralell and the second the per-samples number of threads. ```nSamples``` guarantees a contant number of samples running in parallel; as soon as the count drop of one sample an other will start to run. The definition of these variables affect the scripts ```minimap2.sh``` (which replaces ```bwa.sh```), ```bcftools_markers.sh``` (which replaces ```samtools_marker.sh```) and ```freec.sh```.
+- change the approach for merging markers in blocks:
+  v1 filters out discordant marker positions genotyped across two different mappings and joins the remaining as long as they are consecutive and carry the same information.
+  In v2 the markers are ranked (before the filtering step), so that if, for example, the markers ranked 7, 8, 10, 11 and 12 carry the same information (but marker 9 is missing) the pipeline constructs two separated blocks one from 7 to 8 and another from 10 to 12. The previous version did not use the ranking. If the same markers survived the filtering and were all homozygous with S. paradoxus alleles, then a single red block was made from 7 up to 12.
+
+  
 
 ## Download
  
