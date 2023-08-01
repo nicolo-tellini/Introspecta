@@ -46,13 +46,21 @@ v2. contains the following implementations and changes:
 - improved the roboustness of the mapping by appending the name of the strain to a checkpoint (cps) file (```./cps/cps.txt```). The strains which names are stored in ```./cps/cps.txt``` will not mapped again.
 - introduced ```data.table```, ```lapply``` and custom function for large file manipulation for reducing runtime and RAM load.
   example:
+  
+  sample: ERR3010122 <br>
+  
+  threads: 2 <br>
+  
+  Architecture: x86_64 <br>
+  
+  CPU: Intel(R) Core(TM) i9-9900K CPU @ 3.60GHz <br>
 
   | script  | Elapsed Time (s) | Maximum resident set size (GB) |
   | ------------- | ------------- | ------------- |
-  | parser_marker.r (v1)  | 0:19 s | 0.9 GB  |
-  |  parser_marker.r (v2)  | 0:06 s | 0.5 GB  |
-  | clrs.r (v1) | 0:52 s  | 2.4 GB |
-  | clrs.r (v2) | 0:17 s  | 0.7 GB |
+  | parser_marker.r (v1)  | 0:17 s | 0.8 |
+  |  parser_marker.r (v2)  | 0:06 s | 0.5 |
+  | clrs.r (v1) | 0:49 s  | 1.9 |
+  | clrs.r (v2) | 0:17 s  | 0.7 |
   
 - introduced the variables ```nSamples``` and ```nThreads``` inside ```runner.sh```. The first variable controls the number of samples to run in paralell and the second the per-samples number of threads. ```nSamples``` guarantees a contant number of samples running in parallel; as soon as the count drop of one sample an other will start to run. The definition of these variables affect the scripts ```minimap2.sh``` (which replaces ```bwa.sh```), ```bcftools_markers.sh``` (which replaces ```samtools_marker.sh```) and ```freec.sh```.
 - change the approach for merging markers in blocks:
