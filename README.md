@@ -43,7 +43,7 @@ v2. contains the following implementations and changes:
   | minimap2 + samtools (v2) | 3:36 (m:ss) | 1.3  |
   
 - improved the reproducibility of the mapping by implementing the standard samtools workflow according to [samtools' guideline](http://www.htslib.org/workflow/fastq.html)
-- improved the roboustness of the mapping by appending the name of the strain to a checkpoint (cps) file (```./cps/cps.txt```). The strains which names are stored in ```./cps/cps.txt``` will not mapped again.
+- improved the roboustness of the mapping by appending the name of the strain to a checkpoint (cps) file (```./cps/cps.txt```). The strains which names are stored in ```./cps/cps.txt``` will not be mapped again.
 - introduced ```data.table```, ```lapply``` and custom function for large file manipulation for reducing runtime and RAM load.
   example:
   
