@@ -64,9 +64,12 @@ v2. contains the following implementations and changes:
   
 - introduced the variables ```nSamples``` and ```nThreads``` inside ```runner.sh```. The first variable controls the number of samples to run in paralell and the second the per-samples number of threads. ```nSamples``` guarantees a contant number of samples running in parallel; as soon as the count drop of one sample an other will start to run. The definition of these variables affect the scripts ```minimap2.sh``` (which replaces ```bwa.sh```), ```bcftools_markers.sh``` (which replaces ```samtools_marker.sh```) and ```freec.sh```.
 - change the approach for merging markers in blocks:
+  
   In v1 the markers are (1) genotyped, (2) filtered and (3) joined as long as they are consecutive and carry the same information. In v2 this does not change.
+
   In v2 the markers are (1) ranked, (2) genotyped, (3) filtered, (4) joined as long as they are consecutive in the **ranking** and carry the same information. v1 did not use the ranking.
   This results in a more fragmented signal inevitably but provides a more realistic and faithful representation of the introgression reflecting regions where the genotyping was either discordant or failed.
+  The ranking also represents the strategy that allowed the speedup of ```clrs.r``` (the script that generates the blocks). 
   
   <p align="center">
   <img src="https://github.com/nicolo-tellini/intropipeline/blob/loaded/img/mrkstrategy.png" alt="Sublime's custom image"/>
