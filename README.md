@@ -64,7 +64,7 @@ v2. contains the following implementations and changes:
   
 - introduced the variables ```nSamples``` and ```nThreads``` inside ```runner.sh```. The first variable controls the number of samples to run in paralell and the second the per-samples number of threads. ```nSamples``` guarantees a contant number of samples running in parallel; as soon as the count drop of one sample an other will start to run. The definition of these variables affect the scripts ```minimap2.sh``` (which replaces ```bwa.sh```), ```bcftools_markers.sh``` (which replaces ```samtools_marker.sh```) and ```freec.sh```;
 - corrected an error that prevented the detection of the CNVs;
-- change the approach for merging markers in blocks:
+- changed the approach for merging markers in blocks:
   
   In v1 the markers are (1) genotyped, (2) filtered and (3) joined as long as they are consecutive and carry the same information. In v2 this does not change.
 
