@@ -69,7 +69,7 @@ v2. contains the following implementations and changes:
   In v1 the markers are (1) genotyped, (2) filtered and (3) joined as long as they are consecutive and carry the same information. In v2 this does not change.
 
   In v2 the markers are (1) ranked, (2) genotyped, (3) filtered, (4) joined as long as they are consecutive in the **ranking** and carry the same information. v1 did not use the ranking.
-  This results in a more fragmented signal inevitably but provides a more realistic and faithful representation of the introgression reflecting regions where the genotyping was either discordant or failed.
+  Inevitably, this results in a more fragmented signal but provides a more realistic and faithful representation of the introgression reflecting regions where the genotyping was either discordant or failed.
   The ranking also represents the strategy that allowed the speedup of ```clrs.r``` (the script that generates the blocks). 
   
   <p align="center">
