@@ -76,8 +76,6 @@ v2. contains the following implementations and changes:
   <img src="https://github.com/nicolo-tellini/intropipeline/blob/loaded/img/mrkstrategy.png" alt="Sublime's custom image"/>
 </p>
 
-- added a script to zoom in specific genomic regions, to run separately at the end of the pipeline 
-
 ## Download
  
 :octocat: :
